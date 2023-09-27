@@ -39,8 +39,8 @@ body {
     text-decoration: none;
 }
 
-.education,
-.experience {
+.educacion,
+.experiencia {
     margin-top: 30px;
     background-color: #fff;
     padding: 20px;
@@ -55,8 +55,8 @@ body {
     margin-bottom: 10px;
 }
 
-.education p,
-.experience p {
+.educacion p,
+.experiencia p {
     margin: 5px 0;
 }
 

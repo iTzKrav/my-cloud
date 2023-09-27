@@ -1,14 +1,14 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #575757;
+    color: #ffffff;
 }
 
 .cabecera {
     text-align: center;
-    background-color: #333;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
     padding: 20px;
     margin-bottom: 20px;
 }
@@ -26,7 +26,7 @@ body {
 }
 
 .contacto h2 {
-    color: #333;
+    color: #ffffff;
     font-size: 24px;
 }
 
@@ -35,7 +35,7 @@ body {
 }
 
 .contacto a {
-    color: #d80000;
+    color: #00ffff;
     text-decoration: none;
 }
 

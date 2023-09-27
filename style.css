@@ -48,7 +48,7 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-.section-title {
+.titulos {
     font-weight: bold;
     color: #333;
     font-size: 20px;
@@ -60,7 +60,7 @@ body {
     margin: 5px 0;
 }
 
-.skills,
+.habilidades,
 .certs {
     margin-top: 30px;
     background-color: #fff;
@@ -69,20 +69,20 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-.skills h2,
+.habilidades h2,
 .certs h2 {
     color: #333;
     font-size: 20px;
     margin-bottom: 10px;
 }
 
-.skills ul,
+.habilidades ul,
 .certs ul {
     list-style: none;
     padding: 0;
 }
 
-.skills li,
+.habilidades li,
 .certs li {
     margin: 5px 0;
 }

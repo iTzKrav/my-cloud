@@ -1,4 +1,3 @@
-/* Estilos para el cuerpo del documento */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -6,7 +5,6 @@ body {
     color: #333;
 }
 
-/* Estilos para el encabezado */
 .header {
     text-align: center;
     background-color: #333;
@@ -19,7 +17,6 @@ body {
     margin: 0;
 }
 
-/* Estilos para la información de contacto */
 .contact-info {
     margin-top: 20px;
     background-color: #fff;
@@ -42,7 +39,6 @@ body {
     text-decoration: none;
 }
 
-/* Estilos para la sección de educación y experiencia */
 .education,
 .experience {
     margin-top: 30px;
@@ -64,7 +60,6 @@ body {
     margin: 5px 0;
 }
 
-/* Estilos para la lista de habilidades y certificaciones */
 .skills,
 .certs {
     margin-top: 30px;

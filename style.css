@@ -50,7 +50,7 @@ body {
 
 .titulos {
     font-weight: bold;
-    color: #333;
+    color: #ffffff;
     font-size: 20px;
     margin-bottom: 10px;
 }
@@ -71,7 +71,7 @@ body {
 
 .habilidades h2,
 .certs h2 {
-    color: #333;
+    color: #ffffff;
     font-size: 20px;
     margin-bottom: 10px;
 }

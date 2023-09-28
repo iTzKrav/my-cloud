@@ -14,7 +14,13 @@ body {
 }
 
 .cabecera h1 {
+    color: #fff;
+    transition: color 0.3s;
     margin: 0;
+}
+
+.cabecera:hover h1 {
+    color: #d80000;
 }
 
 .contacto {

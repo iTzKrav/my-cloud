@@ -22,7 +22,7 @@ body {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: -6px 6px 0px rgba(0, 0, 0, 0.3);
 }
 
 .contacto h2 {
@@ -45,7 +45,7 @@ body {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: -6px 6px 0px rgba(0, 0, 0, 0.3);
 }
 
 .titulos {
@@ -66,7 +66,7 @@ body {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: -6px 6px 0px rgba(0, 0, 0, 0.2);
 }
 
 .habilidades h2,

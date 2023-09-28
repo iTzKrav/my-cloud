@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
-    background-color: #f4f4f4;
+    background-color: #c2c2c2;
     color: #333;
 }
 
@@ -11,20 +11,6 @@ body {
     color: #fff;
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: none;
-}
-
-@keyframes sombra-blanca {
-    0% {
-        box-shadow: none; /* Sin sombra al inicio */
-    }
-    100% {
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Agrega una sombra blanca al final */
-    }
-}
-
-.cabecera:hover {
-    animation: sombra-blanca 1s forwards; /* La animación dura 1 segundo */
 }
 
 .cabecera h1 {

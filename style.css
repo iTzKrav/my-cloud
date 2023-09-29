@@ -18,6 +18,9 @@ body {
 }
 
 .contacto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 20px;
     background-color: #fff;
     padding: 20px;
@@ -28,6 +31,17 @@ body {
 .contacto h2 {
     color: #333;
     font-size: 24px;
+    margin: 0;
+}
+
+.contacto-info {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.contacto-foto img {
+    max-width: 100px;
+    border-radius: 50%;
 }
 
 .contacto p {

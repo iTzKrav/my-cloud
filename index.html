@@ -24,73 +24,15 @@
         <button id="opcion4">Opción 4</button>
         <button id="opcion5">Opción 5</button>
         <button id="opcion6">Opción 6</button>
-        <button id="opcion7">Opción 7</button>
     </div>
     <div id="resultado">
         Resultado:
         <div id="output"></div>
     </div>
     <script>
-        // Función para verificar si un número es divisor de otro
-        function esDivisor(numero, divisor) {
-            if (numero % divisor === 0) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        // Función para verificar si un número es primo
-        function esPrimo(numero) {
-            if (numero <= 1) {
-                return false;
-            }
-            for (let i = 2; i < numero; i++) {
-                if (numero % i === 0) {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        // Función para encontrar divisores primos de un número
-        function divisoresPrimos(numero) {
-            const divisores = [];
-            for (let i = 2; i <= numero; i++) {
-                if (numero % i === 0 && esPrimo(i)) {
-                    divisores.push(i);
-                }
-            }
-            return divisores;
-        }
-
-        // Función para encontrar los primeros n números primos
-        function primerosNPrimos(n) {
-            const primos = [];
-            let numero = 2;
-            while (primos.length < n) {
-                if (esPrimo(numero)) {
-                    primos.push(numero);
-                }
-                numero++;
-            }
-            return primos;
-        }
-
-        // Función para verificar si un número es capicúa
-        function esCapicua(numero) {
-            const numeroStr = numero.toString();
-            const numeroReverso = numeroStr.split('').reverse().join('');
-            return numeroStr === numeroReverso;
-        }
-
-        // Función para generar números aleatorios de tres cifras
-        function generarAleatorioTresCifras() {
-            return Math.floor(Math.random() * (999 - 100 + 1) + 100);
-        }
-
-        // Manejar clics en los botones del menú
         const output = document.getElementById('output');
+
+        // Escuchar clics en los botones del menú
         document.getElementById('menu').addEventListener('click', function(event) {
             if (event.target.tagName === 'BUTTON') {
                 const opcion = event.target.id;
@@ -141,12 +83,58 @@
                             }
                         }
                         break;
-                    case 'opcion7':
-                        // Implementar lógica para la opción 7
-                        break;
                 }
             }
         });
+
+        // Funciones
+        function esDivisor(numero, divisor) {
+            return numero % divisor === 0;
+        }
+
+        function esPrimo(numero) {
+            if (numero <= 1) {
+                return false;
+            }
+            for (let i = 2; i < numero; i++) {
+                if (numero % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function divisoresPrimos(numero) {
+            const divisores = [];
+            for (let i = 2; i <= numero; i++) {
+                if (numero % i === 0 && esPrimo(i)) {
+                    divisores.push(i);
+                }
+            }
+            return divisores;
+        }
+
+        function primerosNPrimos(n) {
+            const primos = [];
+            let numero = 2;
+            while (primos.length < n) {
+                if (esPrimo(numero)) {
+                    primos.push(numero);
+                }
+                numero++;
+            }
+            return primos;
+        }
+
+        function esCapicua(numero) {
+            const numeroStr = numero.toString();
+            const numeroReverso = numeroStr.split('').reverse().join('');
+            return numeroStr === numeroReverso;
+        }
+
+        function generarAleatorioTresCifras() {
+            return Math.floor(Math.random() * (999 - 100 + 1) + 100);
+        }
     </script>
 </body>
 </html>

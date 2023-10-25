@@ -1,30 +1,152 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <title>Alejandro Bermúdez Bedoya - CV</title>
-
-<!DOCTYPE html>
-<html lang="es">
 <html>
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Calculadora de Números</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #menu {
+            background-color: #f0f0f0;
+            padding: 10px;
+        }
+        #resultado {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <h1>Calculadora de Números</h1>
     <div id="menu">
-        <button data-opcion="1">Opción 1</button>
-        <button data-opcion="2">Opción 2</button>
-        <button data-opcion="3">Opción 3</button>
-        <button data-opcion="4">Opción 4</button>
-        <button data-opcion="5">Opción 5</button>
-        <button data-opcion="6">Opción 6</button>
-        <button data-opcion="7">Opción 7</button>
+        <button id="opcion1">Opción 1</button>
+        <button id="opcion2">Opción 2</button>
+        <button id="opcion3">Opción 3</button>
+        <button id="opcion4">Opción 4</button>
+        <button id="opcion5">Opción 5</button>
+        <button id="opcion6">Opción 6</button>
+        <button id="opcion7">Opción 7</button>
     </div>
-    <div id="resultado"></div>
-    <script src="script.js"></script>
+    <div id="resultado">
+        Resultado:
+        <div id="output"></div>
+    </div>
+    <script>
+        // Función para verificar si un número es divisor de otro
+        function esDivisor(numero, divisor) {
+            if (numero % divisor === 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        // Función para verificar si un número es primo
+        function esPrimo(numero) {
+            if (numero <= 1) {
+                return false;
+            }
+            for (let i = 2; i < numero; i++) {
+                if (numero % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Función para encontrar divisores primos de un número
+        function divisoresPrimos(numero) {
+            const divisores = [];
+            for (let i = 2; i <= numero; i++) {
+                if (numero % i === 0 && esPrimo(i)) {
+                    divisores.push(i);
+                }
+            }
+            return divisores;
+        }
+
+        // Función para encontrar los primeros n números primos
+        function primerosNPrimos(n) {
+            const primos = [];
+            let numero = 2;
+            while (primos.length < n) {
+                if (esPrimo(numero)) {
+                    primos.push(numero);
+                }
+                numero++;
+            }
+            return primos;
+        }
+
+        // Función para verificar si un número es capicúa
+        function esCapicua(numero) {
+            const numeroStr = numero.toString();
+            const numeroReverso = numeroStr.split('').reverse().join('');
+            return numeroStr === numeroReverso;
+        }
+
+        // Función para generar números aleatorios de tres cifras
+        function generarAleatorioTresCifras() {
+            return Math.floor(Math.random() * (999 - 100 + 1) + 100);
+        }
+
+        // Manejar clics en los botones del menú
+        const output = document.getElementById('output');
+        document.getElementById('menu').addEventListener('click', function(event) {
+            if (event.target.tagName === 'BUTTON') {
+                const opcion = event.target.id;
+                output.innerHTML = '';
+                switch (opcion) {
+                    case 'opcion1':
+                        const num1 = parseInt(prompt('Ingrese el primer número:'));
+                        const num2 = parseInt(prompt('Ingrese el segundo número:'));
+                        if (esDivisor(num1, num2)) {
+                            output.innerHTML = num2 + ' es divisor de ' + num1;
+                        } else {
+                            output.innerHTML = num2 + ' no es divisor de ' + num1;
+                        }
+                        break;
+                    case 'opcion2':
+                        const num = parseInt(prompt('Ingrese un número:'));
+                        if (esPrimo(num)) {
+                            output.innerHTML = num + ' es un número primo';
+                        } else {
+                            output.innerHTML = num + ' no es un número primo';
+                        }
+                        break;
+                    case 'opcion3':
+                        const num3 = parseInt(prompt('Ingrese un número:'));
+                        const divisoresPrimosArray = divisoresPrimos(num3);
+                        output.innerHTML = 'Divisores primos de ' + num3 + ': ' + divisoresPrimosArray.join(', ');
+                        break;
+                    case 'opcion4':
+                        const n = parseInt(prompt('Ingrese la cantidad de números primos que desea encontrar:'));
+                        const primerosNPrimosArray = primerosNPrimos(n);
+                        output.innerHTML = 'Los primeros ' + n + ' números primos son: ' + primerosNPrimosArray.join(', ');
+                        break;
+                    case 'opcion5':
+                        const numAleatorio = generarAleatorioTresCifras();
+                        if (esPrimo(numAleatorio) || esCapicua(numAleatorio)) {
+                            output.innerHTML = 'Número aleatorio especial: ' + numAleatorio;
+                        } else {
+                            output.innerHTML = 'Número aleatorio no es especial: ' + numAleatorio;
+                        }
+                        break;
+                    case 'opcion6':
+                        let contadorNumerosEspeciales = 0;
+                        while (contadorNumerosEspeciales < 10) {
+                            const numAleatorio2 = generarAleatorioTresCifras();
+                            if (esPrimo(numAleatorio2) || esCapicua(numAleatorio2)) {
+                                output.innerHTML += 'Número aleatorio especial: ' + numAleatorio2 + '<br>';
+                                contadorNumerosEspeciales++;
+                            }
+                        }
+                        break;
+                    case 'opcion7':
+                        // Implementar lógica para la opción 7
+                        break;
+                }
+            }
+        });
+    </script>
 </body>
 </html>

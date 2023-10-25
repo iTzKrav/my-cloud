@@ -1,102 +1,12 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #e1e1e1;
-    color: #333;
 }
 
-.cabecera {
-    text-align: center;
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
+#menu {
+    background-color: #f0f0f0;
+    padding: 10px;
 }
 
-.cabecera h1 {
-    margin: 0;
-}
-
-.contacto {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+#resultado {
     margin-top: 20px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: -6px 6px 0px rgba(0, 0, 0, 0.2);
-}
-
-.contacto h2 {
-    color: #333;
-    font-size: 24px;
-    margin: 0;
-}
-
-.contacto-info {
-    flex: 1;
-    padding-right: 20px;
-}
-
-.contacto-foto img {
-    max-width: 100px;
-    border-radius: 50%;
-}
-
-.contacto p {
-    margin: 5px 0;
-}
-
-.contacto a {
-    color: #d80000;
-    text-decoration: none;
-}
-
-.educacion,
-.experiencia {
-    margin-top: 30px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: -6px 6px 0px rgba(0, 0, 0, 0.2);
-}
-
-.titulos {
-    font-weight: bold;
-    color: #333;
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.educacion p,
-.experiencia p {
-    margin: 5px 0;
-}
-
-.habilidades,
-.certs {
-    margin-top: 30px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: -6px 6px 0px rgba(0, 0, 0, 0.2);
-}
-
-.habilidades h2,
-.certs h2 {
-    color: #333;
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.habilidades ul,
-.certs ul {
-    list-style: none;
-    padding: 0;
-}
-
-.habilidades li,
-.certs li {
-    margin: 5px 0;
 }

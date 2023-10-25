@@ -73,14 +73,8 @@
         }
 
         function opcion6() {
-            let contadorNumerosEspeciales = 0;
-            while (contadorNumerosEspeciales < 10) {
-                const numAleatorio2 = generarAleatorioTresCifras();
-                if (esPrimo(numAleatorio2) || esCapicua(numAleatorio2)) {
-                    output.innerHTML += 'Número aleatorio especial: ' + numAleatorio2 + '<br>';
-                    contadorNumerosEspeciales++;
-                }
-            }
+            const numerosEspeciales = generarNumerosEspeciales();
+            output.innerHTML = 'Números especiales generados: ' + numerosEspeciales.join(', ');
         }
 
         function esDivisor(numero, divisor) {
@@ -129,6 +123,17 @@
 
         function generarAleatorioTresCifras() {
             return Math.floor(Math.random() * (999 - 100 + 1) + 100);
+        }
+
+        function generarNumerosEspeciales() {
+            const numerosEspeciales = [];
+            while (numerosEspeciales.length < 10) {
+                const numAleatorio = generarAleatorioTresCifras();
+                if (esPrimo(numAleatorio) || esCapicua(numAleatorio)) {
+                    numerosEspeciales.push(numAleatorio);
+                }
+            }
+            return numerosEspeciales;
         }
     </script>
 </body>

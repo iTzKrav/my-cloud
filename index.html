@@ -18,12 +18,12 @@
 <body>
     <h1>Calculadora de Números</h1>
     <div id="menu">
-        <button id="opcion1">Opción 1</button>
-        <button id="opcion2">Opción 2</button>
-        <button id="opcion3">Opción 3</button>
-        <button id="opcion4">Opción 4</button>
-        <button id="opcion5">Opción 5</button>
-        <button id="opcion6">Opción 6</button>
+        <button onclick="opcion1()">Opción 1</button>
+        <button onclick="opcion2()">Opción 2</button>
+        <button onclick="opcion3()">Opción 3</button>
+        <button onclick="opcion4()">Opción 4</button>
+        <button onclick="opcion5()">Opción 5</button>
+        <button onclick="opcion6()">Opción 6</button>
     </div>
     <div id="resultado">
         Resultado:
@@ -32,62 +32,57 @@
     <script>
         const output = document.getElementById('output');
 
-        // Escuchar clics en los botones del menú
-        document.getElementById('menu').addEventListener('click', function(event) {
-            if (event.target.tagName === 'BUTTON') {
-                const opcion = event.target.id;
-                output.innerHTML = '';
-                switch (opcion) {
-                    case 'opcion1':
-                        const num1 = parseInt(prompt('Ingrese el primer número:'));
-                        const num2 = parseInt(prompt('Ingrese el segundo número:'));
-                        if (esDivisor(num1, num2)) {
-                            output.innerHTML = num2 + ' es divisor de ' + num1;
-                        } else {
-                            output.innerHTML = num2 + ' no es divisor de ' + num1;
-                        }
-                        break;
-                    case 'opcion2':
-                        const num = parseInt(prompt('Ingrese un número:'));
-                        if (esPrimo(num)) {
-                            output.innerHTML = num + ' es un número primo';
-                        } else {
-                            output.innerHTML = num + ' no es un número primo';
-                        }
-                        break;
-                    case 'opcion3':
-                        const num3 = parseInt(prompt('Ingrese un número:'));
-                        const divisoresPrimosArray = divisoresPrimos(num3);
-                        output.innerHTML = 'Divisores primos de ' + num3 + ': ' + divisoresPrimosArray.join(', ');
-                        break;
-                    case 'opcion4':
-                        const n = parseInt(prompt('Ingrese la cantidad de números primos que desea encontrar:'));
-                        const primerosNPrimosArray = primerosNPrimos(n);
-                        output.innerHTML = 'Los primeros ' + n + ' números primos son: ' + primerosNPrimosArray.join(', ');
-                        break;
-                    case 'opcion5':
-                        const numAleatorio = generarAleatorioTresCifras();
-                        if (esPrimo(numAleatorio) || esCapicua(numAleatorio)) {
-                            output.innerHTML = 'Número aleatorio especial: ' + numAleatorio;
-                        } else {
-                            output.innerHTML = 'Número aleatorio no es especial: ' + numAleatorio;
-                        }
-                        break;
-                    case 'opcion6':
-                        let contadorNumerosEspeciales = 0;
-                        while (contadorNumerosEspeciales < 10) {
-                            const numAleatorio2 = generarAleatorioTresCifras();
-                            if (esPrimo(numAleatorio2) || esCapicua(numAleatorio2)) {
-                                output.innerHTML += 'Número aleatorio especial: ' + numAleatorio2 + '<br>';
-                                contadorNumerosEspeciales++;
-                            }
-                        }
-                        break;
+        function opcion1() {
+            const num1 = parseInt(prompt('Ingrese el primer número:'));
+            const num2 = parseInt(prompt('Ingrese el segundo número:'));
+            if (esDivisor(num1, num2)) {
+                output.innerHTML = num2 + ' es divisor de ' + num1;
+            } else {
+                output.innerHTML = num2 + ' no es divisor de ' + num1;
+            }
+        }
+
+        function opcion2() {
+            const num = parseInt(prompt('Ingrese un número:'));
+            if (esPrimo(num)) {
+                output.innerHTML = num + ' es un número primo';
+            } else {
+                output.innerHTML = num + ' no es un número primo';
+            }
+        }
+
+        function opcion3() {
+            const num3 = parseInt(prompt('Ingrese un número:'));
+            const divisoresPrimosArray = divisoresPrimos(num3);
+            output.innerHTML = 'Divisores primos de ' + num3 + ': ' + divisoresPrimosArray.join(', ');
+        }
+
+        function opcion4() {
+            const n = parseInt(prompt('Ingrese la cantidad de números primos que desea encontrar:'));
+            const primerosNPrimosArray = primerosNPrimos(n);
+            output.innerHTML = 'Los primeros ' + n + ' números primos son: ' + primerosNPrimosArray.join(', ');
+        }
+
+        function opcion5() {
+            const numAleatorio = generarAleatorioTresCifras();
+            if (esPrimo(numAleatorio) || esCapicua(numAleatorio)) {
+                output.innerHTML = 'Número aleatorio especial: ' + numAleatorio;
+            } else {
+                output.innerHTML = 'Número aleatorio no es especial: ' + numAleatorio;
+            }
+        }
+
+        function opcion6() {
+            let contadorNumerosEspeciales = 0;
+            while (contadorNumerosEspeciales < 10) {
+                const numAleatorio2 = generarAleatorioTresCifras();
+                if (esPrimo(numAleatorio2) || esCapicua(numAleatorio2)) {
+                    output.innerHTML += 'Número aleatorio especial: ' + numAleatorio2 + '<br>';
+                    contadorNumerosEspeciales++;
                 }
             }
-        });
+        }
 
-        // Funciones
         function esDivisor(numero, divisor) {
             return numero % divisor === 0;
         }

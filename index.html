@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Menú de Opciones</title>
+    <title>Calculadora de Números</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,62 +16,124 @@
     </style>
 </head>
 <body>
-    <h1>Menú de Opciones</h1>
+    <h1>Calculadora de Números</h1>
     <div id="menu">
-        <button onclick="opcion1()">Divisor</button>
-        <button onclick="opcion2()">Opción 2</button>
-        <button onclick="opcion3()">Opción 3</button>
-        <button onclick="opcion4()">Opción 4</button>
-        <button onclick="opcion5()">Opción 5</button>
-        <button onclick="opcion6()">Opción 6</button>
+        <button id="opcion1">Opción 1</button>
+        <button id="opcion2">Opción 2</button>
+        <button id="opcion3">Opción 3</button>
+        <button id="opcion4">Opción 4</button>
+        <button id="opcion5">Opción 5</button>
+        <button id="opcion6">Opción 6</button>
     </div>
     <div id="resultado">
         Resultado:
         <div id="output"></div>
     </div>
     <script>
-
         const output = document.getElementById('output');
 
-        function opcion1() {
-            const num1 = parseInt(prompt('Ingrese el primer número:'));
-            const num2 = parseInt(prompt('Ingrese el segundo número:'));
-
-            if (num1 % num2 === 0) {
-                output.innerHTML = num2 + ' es divisor de ' + num1;
-            } else {
-                output.innerHTML = num2 + ' no es divisor de ' + num1;
+        // Escuchar clics en los botones del menú
+        document.getElementById('menu').addEventListener('click', function(event) {
+            if (event.target.tagName === 'BUTTON') {
+                const opcion = event.target.id;
+                output.innerHTML = '';
+                switch (opcion) {
+                    case 'opcion1':
+                        const num1 = parseInt(prompt('Ingrese el primer número:'));
+                        const num2 = parseInt(prompt('Ingrese el segundo número:'));
+                        if (Divisor(num1, num2)) {
+                            output.innerHTML = num2 + ' es divisor de ' + num1;
+                        } else {
+                            output.innerHTML = num2 + ' no es divisor de ' + num1;
+                        }
+                        break;
+                    case 'opcion2':
+                        const num = parseInt(prompt('Ingrese un número:'));
+                        if (Primo(num)) {
+                            output.innerHTML = num + ' es un número primo';
+                        } else {
+                            output.innerHTML = num + ' no es un número primo';
+                        }
+                        break;
+                    case 'opcion3':
+                        const num3 = parseInt(prompt('Ingrese un número:'));
+                        const divisorPrimosArray = divisorPrimos(num3);
+                        output.innerHTML = 'Divisores primos de ' + num3 + ': ' + divisorPrimosArray.join(', ');
+                        break;
+                    case 'opcion4':
+                        const n = parseInt(prompt('Ingrese la cantidad de números primos que desea encontrar:'));
+                        const NPrimosArray = NPrimos(n);
+                        output.innerHTML = 'Los primeros ' + n + ' números primos son: ' + NPrimosArray.join(', ');
+                        break;
+                    case 'opcion5':
+                        const numAleatorio = RandomTresCifras();
+                        if (Primo(numAleatorio) || Capicua(numAleatorio)) {
+                            output.innerHTML = 'Número aleatorio especial: ' + numAleatorio;
+                        } else {
+                            output.innerHTML = 'Número aleatorio no es especial: ' + numAleatorio;
+                        }
+                        break;
+                    case 'opcion6':
+                        let contadorNumerosEspeciales = 0;
+                        while (contadorNumerosEspeciales < 10) {
+                            const numAleatorio2 = RandomTresCifras();
+                            if (Primo(numAleatorio2) || Capicua(numAleatorio2)) {
+                                output.innerHTML += 'Número aleatorio especial: ' + numAleatorio2 + '<br>';
+                                contadorNumerosEspeciales++;
+                            }
+                        }
+                        break;
+                }
             }
+        });
+
+        // Funciones
+        function Divisor(numero, divisor) {
+            return numero % divisor === 0;
         }
 
-        function opcion2() {
-            const num = parseInt(prompt('Ingrese un número:'));
-
-            if (num % num == 0) && (num % 1 == 0) {
-                output.innerHTML = num + 'es un número primo';
-            } else {
-                output.innerHTML = num + 'no es número primo';
+        function Primo(numero) {
+            if (numero <= 1) {
+                return false;
             }
+            for (let i = 2; i < numero; i++) {
+                if (numero % i === 0) {
+                    return false;
+                }
+            }
+            return true;
         }
 
-        function opcion3() {
-            // Lógica de la Opción 3
-            output.innerHTML = 'Has seleccionado la Opción 3';
+        function divisorPrimos(numero) {
+            const divisores = [];
+            for (let i = 2; i <= numero; i++) {
+                if (numero % i === 0 && Primo(i)) {
+                    divisores.push(i);
+                }
+            }
+            return divisores;
         }
 
-        function opcion4() {
-            // Lógica de la Opción 4
-            output.innerHTML = 'Has seleccionado la Opción 4';
+        function NPrimos(n) {
+            const primos = [];
+            let numero = 2;
+            while (primos.length < n) {
+                if (Primo(numero)) {
+                    primos.push(numero);
+                }
+                numero++;
+            }
+            return primos;
         }
 
-        function opcion5() {
-            // Lógica de la Opción 5
-            output.innerHTML = 'Has seleccionado la Opción 5';
+        function Capicua(numero) {
+            const numeroStr = numero.toString();
+            const numeroReverso = numeroStr.split('').reverse().join('');
+            return numeroStr === numeroReverso;
         }
 
-        function opcion6() {
-            // Lógica de la Opción 6
-            output.innerHTML = 'Has seleccionado la Opción 6';
+        function RandomTresCifras() {
+            return Math.floor(Math.random() * (999 - 100 + 1) + 100);
         }
     </script>
 </body>

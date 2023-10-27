@@ -22,6 +22,8 @@
         <button id="opcion2">Primo</button>
         <button id="opcion3">Divisores primos de</button>
         <button id="opcion4">Cantidad de numeros primos</button>
+        <button id="opcion5">Aleatorio primo</button>
+        <button id="opcion6">Aleatorio primos o capicuas</button>
     </div>
     <div id="resultado">
         Resultado:
@@ -62,6 +64,18 @@
                         const NPrimosArray = NPrimos(n);
                         salida.innerHTML = 'Los primeros ' + n + ' números primos son: ' + NPrimosArray.join(', ');
                         break;
+                    case 'opcion5':
+                        var Nrandom = Math.random() * (999 - 100);
+                        if (Primo(Nrandom)) {
+                            salida.innerHTML = Nrandom + 'es un número primo.';
+                        
+                        } else {
+                            salida.innerHTML = Nrandom + 'no es un número primo.';
+                            
+                        }
+                    case 'opcion6':
+                        const Nrandom3 = Math.random() * (999 - 100) + 100;
+
                 }
             }
         });
@@ -102,6 +116,27 @@
                 numero++;
             }
             return primos;
+        }
+
+        function Capicua(n)
+        {
+            const P = Math.floor(n / 100);
+            const U = n % 10;
+            if(P === U) {
+                return true
+            } else { 
+                return false
+            }
+        }
+
+        function SS(n)
+        {
+            if(Primo(n) && Capicua(n))
+                return true;
+        }
+
+        function FRandom3() {
+            return Math.random() * (999 - 100) + 100;
         }
     </script>
 </body>

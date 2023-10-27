@@ -18,7 +18,7 @@
 <body>
     <h1>Menú de Opciones</h1>
     <div id="menu">
-        <button onclick="opcion1()">Opción 1</button>
+        <button onclick="opcion1()">Divisor</button>
         <button onclick="opcion2()">Opción 2</button>
         <button onclick="opcion3()">Opción 3</button>
         <button onclick="opcion4()">Opción 4</button>
@@ -30,14 +30,14 @@
         <div id="output"></div>
     </div>
     <script>
+
         const output = document.getElementById('output');
 
-        function opcion1(numero,divisor) {
+        function opcion1() {
             const num1 = parseInt(prompt('Ingrese el primer número:'));
             const num2 = parseInt(prompt('Ingrese el segundo número:'));
-            return numero % divisor === 0;
 
-            if (esDivisor(num1, num2)) {
+            if (num1 % num2 === 0) {
                 output.innerHTML = num2 + ' es divisor de ' + num1;
             } else {
                 output.innerHTML = num2 + ' no es divisor de ' + num1;
@@ -45,8 +45,13 @@
         }
 
         function opcion2() {
-            // Lógica de la Opción 2
-            output.innerHTML = 'Has seleccionado la Opción 2';
+            const num = parseInt(prompt('Ingrese un número:'));
+
+            if (num % num == 0) && (num % 1 == 0) {
+                output.innerHTML = num + 'es un número primo';
+            } else {
+                output.innerHTML = num + 'no es número primo';
+            }
         }
 
         function opcion3() {

@@ -18,12 +18,10 @@
 <body>
     <h1>Calculadora de Números</h1>
     <div id="menu">
-        <button id="opcion1">Opción 1</button>
-        <button id="opcion2">Opción 2</button>
-        <button id="opcion3">Opción 3</button>
-        <button id="opcion4">Opción 4</button>
-        <button id="opcion5">Opción 5</button>
-        <button id="opcion6">Opción 6</button>
+        <button id="opcion1">Divisor</button>
+        <button id="opcion2">Primo</button>
+        <button id="opcion3">Divisores primos de</button>
+        <button id="opcion4">Numeros primos</button>
     </div>
     <div id="resultado">
         Resultado:
@@ -32,7 +30,6 @@
     <script>
         const output = document.getElementById('output');
 
-        // Escuchar clics en los botones del menú
         document.getElementById('menu').addEventListener('click', function(event) {
             if (event.target.tagName === 'BUTTON') {
                 const opcion = event.target.id;
@@ -65,29 +62,10 @@
                         const NPrimosArray = NPrimos(n);
                         output.innerHTML = 'Los primeros ' + n + ' números primos son: ' + NPrimosArray.join(', ');
                         break;
-                    case 'opcion5':
-                        const numAleatorio = RandomTresCifras();
-                        if (Primo(numAleatorio) || Capicua(numAleatorio)) {
-                            output.innerHTML = 'Número aleatorio especial: ' + numAleatorio;
-                        } else {
-                            output.innerHTML = 'Número aleatorio no es especial: ' + numAleatorio;
-                        }
-                        break;
-                    case 'opcion6':
-                        let contadorNumerosEspeciales = 0;
-                        while (contadorNumerosEspeciales < 10) {
-                            const numAleatorio2 = RandomTresCifras();
-                            if (Primo(numAleatorio2) || Capicua(numAleatorio2)) {
-                                output.innerHTML += 'Número aleatorio especial: ' + numAleatorio2 + '<br>';
-                                contadorNumerosEspeciales++;
-                            }
-                        }
-                        break;
                 }
             }
         });
 
-        // Funciones
         function Divisor(numero, divisor) {
             return numero % divisor === 0;
         }
@@ -124,16 +102,6 @@
                 numero++;
             }
             return primos;
-        }
-
-        function Capicua(numero) {
-            const numeroStr = numero.toString();
-            const numeroReverso = numeroStr.split('').reverse().join('');
-            return numeroStr === numeroReverso;
-        }
-
-        function RandomTresCifras() {
-            return Math.floor(Math.random() * (999 - 100 + 1) + 100);
         }
     </script>
 </body>

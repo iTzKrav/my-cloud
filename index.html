@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Calculadora de Números</title>
+    <title>Menú de Opciones</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,13 +16,13 @@
     </style>
 </head>
 <body>
-    <h1>Calculadora de Números</h1>
+    <h1>Menú de Opciones</h1>
     <div id="menu">
-        <button onclick="opcion1()">Divisor</button>
-        <button onclick="opcion2()">Primo</button>
-        <button onclick="opcion3()">Divisores primos de</button>
-        <button onclick="opcion4()">Cantidad de numeros primos</button>
-        <button onclick="opcion5()">Numero aleatorio</button>
+        <button onclick="opcion1()">Opción 1</button>
+        <button onclick="opcion2()">Opción 2</button>
+        <button onclick="opcion3()">Opción 3</button>
+        <button onclick="opcion4()">Opción 4</button>
+        <button onclick="opcion5()">Opción 5</button>
         <button onclick="opcion6()">Opción 6</button>
     </div>
     <div id="resultado">
@@ -32,9 +32,11 @@
     <script>
         const output = document.getElementById('output');
 
-        function opcion1() {
+        function opcion1(numero,divisor) {
             const num1 = parseInt(prompt('Ingrese el primer número:'));
             const num2 = parseInt(prompt('Ingrese el segundo número:'));
+            return numero % divisor === 0;
+
             if (esDivisor(num1, num2)) {
                 output.innerHTML = num2 + ' es divisor de ' + num1;
             } else {
@@ -43,97 +45,28 @@
         }
 
         function opcion2() {
-            const num = parseInt(prompt('Ingrese un número:'));
-            if (esPrimo(num)) {
-                output.innerHTML = num + ' es un número primo';
-            } else {
-                output.innerHTML = num + ' no es un número primo';
-            }
+            // Lógica de la Opción 2
+            output.innerHTML = 'Has seleccionado la Opción 2';
         }
 
         function opcion3() {
-            const num3 = parseInt(prompt('Ingrese un número:'));
-            const divisoresPrimosArray = divisoresPrimos(num3);
-            output.innerHTML = 'Divisores primos de ' + num3 + ': ' + divisoresPrimosArray.join(', ');
+            // Lógica de la Opción 3
+            output.innerHTML = 'Has seleccionado la Opción 3';
         }
 
         function opcion4() {
-            const n = parseInt(prompt('Ingrese la cantidad de números primos que desea encontrar:'));
-            const primerosNPrimosArray = primerosNPrimos(n);
-            output.innerHTML = 'Los primeros ' + n + ' números primos son: ' + primerosNPrimosArray.join(', ');
+            // Lógica de la Opción 4
+            output.innerHTML = 'Has seleccionado la Opción 4';
         }
 
         function opcion5() {
-            const numAleatorio = generarAleatorioTresCifras();
-            if (esPrimo(numAleatorio) || esCapicua(numAleatorio)) {
-                output.innerHTML = 'Número aleatorio es especial (primo y capicúa): ' + numAleatorio;
-            } else {
-                output.innerHTML = 'Número aleatorio no es especial: ' + numAleatorio;
-            }
+            // Lógica de la Opción 5
+            output.innerHTML = 'Has seleccionado la Opción 5';
         }
 
         function opcion6() {
-            const numerosEspeciales = generarNumerosEspeciales();
-            output.innerHTML = 'Números especiales generados: ' + numerosEspeciales.join(', ');
-        }
-
-        function esDivisor(numero, divisor) {
-            return numero % divisor === 0;
-        }
-
-        function esPrimo(numero) {
-            if (numero <= 1) {
-                return false;
-            }
-            for (let i = 2; i < numero; i++) {
-                if (numero % i === 0) {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        function divisoresPrimos(numero) {
-            const divisores = [];
-            for (let i = 2; i <= numero; i++) {
-                if (numero % i === 0 && esPrimo(i)) {
-                    divisores.push(i);
-                }
-            }
-            return divisores;
-        }
-
-        function primerosNPrimos(n) {
-            const primos = [];
-            let numero = 2;
-            while (primos.length < n) {
-                if (esPrimo(numero)) {
-                    primos.push(numero);
-                }
-                numero++;
-            }
-            return primos;
-        }
-
-        function esCapicua(numero) {
-            const numeroStr = numero.toString();
-            const numeroReverso = numeroStr.split('').reverse().join('');
-            return numeroStr === numeroReverso;
-        }
-
-        function generarAleatorioTresCifras() {
-            return Math.floor(Math.random() * (999 - 100 + 1) + 100);
-        }
-
-        function generarNumerosEspeciales() {
-            const numerosEspeciales = [];
-            while (numerosEspeciales.length < 10) {
-                const numAleatorio = generarAleatorioTresCifras();
-                if (esPrimo(numAleatorio) || esCapicua(numAleatorio)) {
-                    numerosEspeciales.push(numAleatorio);
-                }
-            }
-            return numerosEspeciales;
+            // Lógica de la Opción 6
+            output.innerHTML = 'Has seleccionado la Opción 6';
         }
     </script>
 </body>

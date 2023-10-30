@@ -18,73 +18,25 @@
 <body>
     <h1>Calculadora de Números</h1>
     <div id="menu">
-        <button id="opcion1">Divisor</button>
-        <button id="opcion2">Primo</button>
-        <button id="opcion3">Divisores primos de</button>
-        <button id="opcion4">Cantidad de numeros primos</button>
-        <button id="opcion5">Aleatorio primo</button>
-        <button id="opcion6">Aleatorio primos o capicuas</button>
+        <button onclick="opcion1()">Divisor</button>
+        <button onclick="opcion2()">Primo</button>
+        <button onclick="opcion3()">Opción 3</button>
+        <button onclick="opcion4()">Opción 4</button>
+        <button onclick="opcion5()">Opción 5</button>
+        <button onclick="opcion6()">Opción 6</button>
     </div>
     <div id="resultado">
         Resultado:
-        <div id="salida"></div>
+        <div id="output"></div>
     </div>
     <script>
-        const salida = document.getElementById('salida');
+        const output = document.getElementById('output');
 
-        document.getElementById('menu').addEventListener('click', function(event) {
-            if (event.target.tagName === 'BUTTON') {
-                const opcion = event.target.id;
-                salida.innerHTML = '';
-                switch (opcion) {
-                    case 'opcion1':
-                        const num1 = parseInt(prompt('Ingrese el primer número:'));
-                        const num2 = parseInt(prompt('Ingrese el segundo número:'));
-                        if (Divisor(num1, num2)) {
-                            salida.innerHTML = num2 + ' es divisor de ' + num1;
-                        } else {
-                            salida.innerHTML = num2 + ' no es divisor de ' + num1;
-                        }
-                        break;
-                    case 'opcion2':
-                        const num = parseInt(prompt('Ingrese un número:'));
-                        if (Primo(num)) {
-                            salida.innerHTML = num + ' es un número primo';
-                        } else {
-                            salida.innerHTML = num + ' no es un número primo';
-                        }
-                        break;
-                    case 'opcion3':
-                        const num3 = parseInt(prompt('Ingrese un número:'));
-                        const divisorPrimosArray = divisorPrimos(num3);
-                        salida.innerHTML = 'Divisores primos de ' + num3 + ': ' + divisorPrimosArray.join(', ');
-                        break;
-                    case 'opcion4':
-                        const n = parseInt(prompt('Ingrese la cantidad de números primos que desea encontrar:'));
-                        const NPrimosArray = NPrimos(n);
-                        salida.innerHTML = 'Los primeros ' + n + ' números primos son: ' + NPrimosArray.join(', ');
-                        break;
-                    case 'opcion5':
-                        var Nrandom = Math.random() * (999 - 100);
-                        if (Primo(Nrandom)) {
-                            salida.innerHTML = Nrandom + 'es un número primo.';
-                        
-                        } else {
-                            salida.innerHTML = Nrandom + 'no es un número primo.';
-                            
-                        }
-                    case 'opcion6':
-                        const Nrandom3 = Math.random() * (999 - 100) + 100;
-
-                }
-            }
-        });
-
-        function Divisor(numero, divisor) {
+        function esDivisor(numero, divisor) {
             return numero % divisor === 0;
         }
 
-        function Primo(numero) {
+        function esPrimo(numero) {
             if (numero <= 1) {
                 return false;
             }
@@ -96,48 +48,62 @@
             return true;
         }
 
-        function divisorPrimos(numero) {
+        function divisoresPrimos(numero) {
             const divisores = [];
-            for (let i = 2; i <= numero; i++) {
-                if (numero % i === 0 && Primo(i)) {
+            for (let i = 1; i <= numero; i++) {
+                if (numero % i === 0 && esPrimo(i)) {
                     divisores.push(i);
                 }
             }
             return divisores;
         }
 
-        function NPrimos(n) {
+        function primerosNPrimos(n) {
             const primos = [];
-            let numero = 2;
+            let i = 2;
             while (primos.length < n) {
-                if (Primo(numero)) {
-                    primos.push(numero);
+                if (esPrimo(i)) {
+                    primos.push(i);
                 }
-                numero++;
+                i++;
             }
             return primos;
         }
 
-        function Capicua(n)
-        {
-            const P = Math.floor(n / 100);
-            const U = n % 10;
-            if(P === U) {
-                return true
-            } else { 
-                return false
+        function opcion1() {
+            const num1 = parseInt(prompt('Ingrese el primer número:'));
+            const num2 = parseInt(prompt('Ingrese el segundo número:'));
+
+            if (esDivisor(num1, num2)) {
+                output.innerHTML = num2 + ' es divisor de ' + num1;
+            } else {
+                output.innerHTML = num2 + ' no es divisor de ' + num1;
             }
         }
 
-        function SS(n)
-        {
-            if(Primo(n) && Capicua(n))
-                return true;
+        function opcion2() {
+            const num = parseInt(prompt('Ingrese un número:'));
+
+            if (esPrimo(num)) {
+                output.innerHTML = num + ' es un número primo';
+            } else {
+                output.innerHTML = num + ' no es un número primo';
+            }
         }
 
-        function FRandom3() {
-            return Math.random() * (999 - 100) + 100;
+        function opcion3() {
+            const num = parseInt(prompt('Ingrese un número:'));
+            const divisores = divisoresPrimos(num);
+            output.innerHTML = 'Divisores primos de ' + num + ': ' + divisores.join(', ');
         }
-    </script>
-</body>
-</html>
+
+        function opcion4() {
+            const n = parseInt(prompt('Ingrese la cantidad de números primos a imprimir:'));
+            const primos = primerosNPrimos(n);
+            output.innerHTML = 'Los primeros ' + n + ' números primos son: ' + primos.join(', ');
+        }
+
+        function opcion5() {
+            const numAleatorio = Math.floor(Math.random() * 1000) + 1;
+            if (esPrimo(numAleatorio)) {
+                output

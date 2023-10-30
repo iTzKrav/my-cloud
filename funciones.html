@@ -113,16 +113,18 @@
         }
 
         function opcion6() {
-            let primosOCapicuas = 0;
+            let capicuasGenerados = 0;
             let numerosGenerados = [];
-            while (primosOCapicuas < 10) {
-                const numAleatorio = Math.floor(Math.random() * 900) + 100;
-                if (Primo(numAleatorio) || esCapicua(numAleatorio)) {
-                    primosOCapicuas++;
-                    numerosGenerados.push(numAleatorio);
+            for (let i = 100; i <= 999; i++) {
+                if (esCapicua(i)) {
+                    capicuasGenerados++;
+                    numerosGenerados.push(i);
+                    if (capicuasGenerados === 10) {
+                        break;
+                    }
                 }
             }
-            output.innerHTML = 'Números primos o capicúas generados: ' + numerosGenerados.join(', ');
+            output.innerHTML = 'Números capicúas de tres cifras generados: ' + numerosGenerados.join(', ');
         }
 
         function esCapicua(numero) {

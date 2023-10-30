@@ -30,8 +30,6 @@
         <div id="output"></div>
     </div>
     <script>
-        const output = document.getElementById('output');
-
         function Divisor(numero, divisor) {
             return numero % divisor === 0;
         }
@@ -40,7 +38,7 @@
             if (numero <= 1) {
                 return false;
             }
-            for (let i = 2; i < numero; i++) {
+            for (var i = 2; i < numero; i++) {
                 if (numero % i === 0) {
                     return false;
                 }
@@ -49,8 +47,8 @@
         }
 
         function DivisorPrimos(numero) {
-            const divisores = [];
-            for (let i = 1; i <= numero; i++) {
+            var divisores = [];
+            for (var i = 1; i <= numero; i++) {
                 if (numero % i === 0 && Primo(i)) {
                     divisores.push(i);
                 }
@@ -59,8 +57,8 @@
         }
 
         function NPrimos(n) {
-            const primos = [];
-            let i = 2;
+            var primos = [];
+            var i = 2;
             while (primos.length < n) {
                 if (Primo(i)) {
                     primos.push(i);
@@ -71,13 +69,13 @@
         }
 
         function Capicua(numero) {
-            const numeroInvertido = parseInt(numero.toString().split('').reverse().join(''));
+            var numeroInvertido = parseInt(numero.toString().split('').reverse().join(''));
             return numero === numeroInvertido;
         }
 
         function opcion1() {
-            const num1 = parseInt(prompt('Ingrese el primer número:'));
-            const num2 = parseInt(prompt('Ingrese el segundo número:'));
+            var num1 = parseInt(prompt('Ingrese el primer número:'));
+            var num2 = parseInt(prompt('Ingrese el segundo número:'));
 
             if (Divisor(num1, num2)) {
                 output.innerHTML = num2 + ' es divisor de ' + num1;
@@ -87,7 +85,7 @@
         }
 
         function opcion2() {
-            const num = parseInt(prompt('Ingrese un número:'));
+            var num = parseInt(prompt('Ingrese un número:'));
 
             if (Primo(num)) {
                 output.innerHTML = num + ' es un número primo';
@@ -97,19 +95,19 @@
         }
 
         function opcion3() {
-            const num = parseInt(prompt('Ingrese un número:'));
-            const divisores = DivisorPrimos(num);
+            var num = parseInt(prompt('Ingrese un número:'));
+            var divisores = DivisorPrimos(num);
             output.innerHTML = 'Divisores primos de ' + num + ': ' + divisores.join(', ');
         }
 
         function opcion4() {
-            const n = parseInt(prompt('Ingrese la cantidad de números primos a imprimir:'));
-            const primos = NPrimos(n);
+            var n = parseInt(prompt('Ingrese la cantidad de números primos a imprimir:'));
+            var primos = NPrimos(n);
             output.innerHTML = 'Los primeros ' + n + ' números primos son: ' + primos.join(', ');
         }
 
         function opcion5() {
-            const numAleatorio = Math.floor(Math.random() * 1000) + 1;
+            var numAleatorio = Math.floor(Math.random() * 1000) + 1;
             if (Primo(numAleatorio)) {
                 output.innerHTML = numAleatorio + ' es un número primo';
             } else {
@@ -118,18 +116,19 @@
         }
 
         function opcion6() {
-            let capicuasGenerados = 0;
-            let numerosGenerados = [];
+            var capicuasGenerados = 0;
+            var numerosGenerados = [];
             while (capicuasGenerados < 10) {
-                const numAleatorio = Math.floor(Math.random() * (999 - 100 + 1) + 100); // Genera un número aleatorio entre 100 y 999
+                var numAleatorio = Math.floor(Math.random() * (999 - 100 + 1) + 100);
                 if (Capicua(numAleatorio)) {
                     capicuasGenerados++;
                     numerosGenerados.push(numAleatorio);
                 }
             }
-            output.innerHTML = 'Números capicúas de tres cifras generados: ' + numerosGenerados.join(', ');
+            output.innerHTML = 'Números capicúas de tres cifras aleatorios: ' + numerosGenerados.join(', ');
         }
 
+        var output = document.getElementById('output');
     </script>
 </body>
 </html>
